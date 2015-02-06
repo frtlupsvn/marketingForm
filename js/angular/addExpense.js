@@ -6,7 +6,7 @@ var parseUrlEmployee =      "https://api.parse.com/1/classes/Employee";
 var parseUrlCategories =    "https://api.parse.com/1/classes/Categories";
 
 
- $scope.statusArray = ["Advance","Payment"];
+$scope.statusArray = ["Advance","Payment"];
 
     //Get list Employee from Parse.com
     $scope.getEmployee = function() {
@@ -44,19 +44,21 @@ var parseUrlCategories =    "https://api.parse.com/1/classes/Categories";
 
         Parse.initialize("7MEb3qAzRJHYOkBGeRFlgyRVhr32jvsP4v7nTCzQ", "VEi9jbdu6la8IEaBcBIU9kfmOcDUSMVNeQxmTxIn");
 
-
-
-
         var ExpenseObject = Parse.Object.extend("Expense");
-        var TempExpenseObject = new ExpenseObject();
+        var expenseobject = new ExpenseObject();
 
-        TempExpenseObject.save({total:formExpense.total , description: formExpense.description, status: formExpense.status, date:formExpense.date}, {
+        expenseobject.save({
+            total:formExpense.total ,
+            description: formExpense.description, 
+            status: formExpense.status, 
+            date:formExpense.date, 
+            expenseBy:formExpense.expenseBy, 
+            acceptBy:formExpense.acceptBy,
+            category:formExpense.category
+        }, 
+        {
           success: function(object) {
             alert("success");
-            console.log($scope.jsonEmployee[1]);
-            TempExpenseObject.set("expenseBy",$scope.jsonEmployee[1]);
-            TempExpenseObject.save();
- 
         },
         error: function(model, error) {
             alert("Error");
