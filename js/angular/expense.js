@@ -1,33 +1,46 @@
 
 app.controller('Expense',function($scope, $http) {
 
-    var formExpense = {
-        expenseBy: "",
-        aprrovedBy: "",
-        date: "",
-        total: 0,
-        notes: ""
-    };
+//Get Objects Params
+var apiKeyGet =     { 'X-Parse-Application-Id':'7MEb3qAzRJHYOkBGeRFlgyRVhr32jvsP4v7nTCzQ', 'X-Parse-REST-API-Key':'18I0T6NZjaBUifZv3leQ8HFHPnlfmBKBPVVaoaUr'};
+var parseUrlEmployee = "https://api.parse.com/1/classes/Employee";
 
+ //Creating Objects Params
+ var apiKeyPost =   { 'X-Parse-Application-Id':'7MEb3qAzRJHYOkBGeRFlgyRVhr32jvsP4v7nTCzQ', 'X-Parse-REST-API-Key':'18I0T6NZjaBUifZv3leQ8HFHPnlfmBKBPVVaoaUr', 'Content-Type': 'application/json'};
+ var parseUrlExpense = "https://api.parse.com/1/classes/Expense";
+
+
+    //Get data from Parse.com
     $scope.getItems = function() {
-        $http({method : 'GET',url : "https://api.parse.com/1/classes/Employee", headers: { 'X-Parse-Application-Id':'7MEb3qAzRJHYOkBGeRFlgyRVhr32jvsP4v7nTCzQ', 'X-Parse-REST-API-Key':'18I0T6NZjaBUifZv3leQ8HFHPnlfmBKBPVVaoaUr'}})
+        $http({method : 'GET',url : parseUrlEmployee , headers: apiKeyGet })
         .success(function(data, status) {
-            // alert("success");
             $scope.jsonData = data.results;
+            // console.log($scope.jsonData);
         })
         .error(function(data, status) {
             alert("Error");
         });
     };
 
+    // Call Function get data
     $scope.getItems();
 
     $scope.addExpense = function(){
-        formExpense = $scope.form;
+        var formExpense =   $scope.form;
+        formExpense.date = Date.parse($scope.date);
 
-        alert(formExpense.total);
-        alert(formExpense.notes);
-        alert(formExpense.aprrovedBy);
+        //Preparing Json for Push to Parse.com
+        var jsonString = angular.toJson(formExpense);
+        
+        //Push data to Parse.com
+        $http({method : 'POST',url : parseUrlExpense, data: jsonString , headers: apiKeyPost})
+        .success(function (data, status) {
+            alert("success");
+        })
+        .error(function (data, status) {
+            alert("fail");
+        });
     };
 
 });
+

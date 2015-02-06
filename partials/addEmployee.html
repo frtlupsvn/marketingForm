@@ -1,0 +1,65 @@
+ <div ng-controller="addEmployee">
+ 	<div class="content">
+ 		<div class="page-header">
+ 			<div class="icon">
+ 				<span class="ico-layout-7"></span>
+ 			</div>
+ 			<h1>Add New Employee <small>METRO STYLE ADMIN PANEL</small></h1>
+ 		</div>
+
+ 		<div class="row-fluid">
+ 			<div class="span12">
+
+ 				<div>
+ 						<div class="row-form">
+ 							<div class="span3">Name:</div>
+ 							<div class="span5">
+ 								<input ng-model="employee.name" type="text" placeholder="Enter fullname here">
+ 							</div>
+ 						</div>    
+
+ 						<div class="row-form">
+ 							<div class="span3">Position:</div>
+ 							<div class="span5">
+ 								<input ng-model="employee.position" type="text" placeholder="Enter postion here">
+ 							</div>
+ 						</div> 
+
+ 						<div class="row-form">
+ 							<div class="span3">Group:</div>
+ 							<div class="span5">
+ 								<select ng-model="employee.group" name="s_example">
+ 									<option ng-repeat="t in groupArray" value="{{t}}">{{t}}</option>
+ 								</select>
+ 							</div>
+ 						</div> 
+
+ 						<div class="row-form">
+ 							<div class="span3">Telephone:</div>
+ 							<div class="span5">
+ 								<input ng-model="employee.telephone" type="text" placeholder="Enter number telephone here">
+ 							</div>
+ 						</div> 
+
+ 						<div class="row-form">
+ 							<div class="span3">Notes:</div>
+ 							<div class="span5">
+ 								<div class="span5">
+ 									<textarea ng-model="employee.note"  placeholder="Notes somethings here"></textarea>
+ 								</div>
+ 							</div>
+ 						</div> 
+
+ 						
+						<div class="span8">
+ 							<button class="btn btn-large btn-block btn-primary" ng-click="saveEmployee()">Save New Employee</button>   
+ 						</div>
+ 				</div>
+
+ 			</div>
+
+
+ 		</div>
+ 	</div>  
+ </div>
+ 
