@@ -1,0 +1,85 @@
+
+<div ng-controller="Report">
+    <div class="content">
+
+        <div class="page-header">
+            <div class="icon">
+                <span class="ico-layout-7"></span>
+            </div>
+            <h1>Report<small>METRO STYLE ADMIN PANEL</small></h1>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span12">
+
+                <div class="row-form">
+                <div class="span2">Expense By:</div>
+                    <div class="span3">
+                        <select ng-model="expenseBy" name="s_example">
+                            <option ng-repeat="t in jsonEmployee" value="{{t.objectId}}">{{t.name}}</option>
+                        </select>
+                    </div>
+                    <div class="span2">
+                        <button class="btn" type="button" ng-click="getExpense(expenseBy)">Search</button>
+                    </div>
+                </div>    
+
+                <div class="block">
+                    <div class="head orange">
+                        <div class="icon"><span class="ico-layout-9"></span></div>
+                        <h2>Table sorting</h2>
+                        <ul class="buttons">
+                        </ul>                                 
+                    </div>   
+
+                    <div class="loading" ng-class="{desactive: loading=='hide'}">
+                        <div id="loadingProgressG">
+                            <div id="loadingProgressG_1" class="loadingProgressG">
+                            </div>
+                        </div>
+                    </div>   
+
+                    <div class="data-fluid">
+                        <table class="table fTable lcnp" cellpadding="0" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th width="10%">Expense By</th>
+                                    <th width="10%">Aprroved By</th>
+                                    <th width="20%">Categories</th>
+                                    <th width="10%" class="TAC">Status</th>
+                                    <th width="10%" class="TAC">Date</th>
+                                    <th width="20%" class="TAC">Price</th>
+                                    <th width="20%" class="TAC">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="t in jsonData">
+                                    <td>{{employeeDict[t.expenseBy]}}</td>
+                                    <td>{{employeeDict[t.acceptBy]}}</td>
+                                    <td><span class="label label-info">{{categoriesDict[t.category]}}</span></td>
+                                    <td>{{t.status}}</td>
+                                    <td>{{t.date | date:"dd/MM/yyyy"}}</td>
+                                    <td>{{t.total | number}} VND</td>
+                                    <td>{{t.description}}</td>
+                                </tr>                              
+                            </tbody>
+                        </table>                    
+                        <div class="row-fluid">
+                            <div class="span9"></div>
+                            <div class="span3">
+                                <div class="total">
+                                    <div class="highlight">
+                                        <strong><span class="label label-info ng-binding">Total: {{totalExpense | number}} <em>VND</em> </span></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                </div>              
+
+            </div>
+        </div>  
+
+    </div>
+</div>
