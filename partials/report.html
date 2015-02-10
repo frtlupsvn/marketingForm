@@ -13,21 +13,30 @@
             <div class="span12">
 
                 <div class="row-form">
-                <div class="span2">Expense By:</div>
-                    <div class="span3">
+                    <div class="span1">Expense By:</div>
+                    <div class="span2">
                         <select ng-model="expenseBy" name="s_example">
                             <option ng-repeat="t in jsonEmployee" value="{{t.objectId}}">{{t.name}}</option>
                         </select>
                     </div>
-                    <div class="span2">
-                        <button class="btn" type="button" ng-click="getExpense(expenseBy)">Search</button>
+                    <div class="span1">From :</div>
+                    <div class="span2">                                                            
+                        <input ng-model="dateFrom" type="date" class="datepicker"/>
                     </div>
-                </div>    
+                    <div class="span1">To :</div>
+                    <div class="span2">                                                            
+                        <input ng-model="dateTo" type="date" class="datepicker"/>
+                    </div>
+                    <div class="span2">
+                    <button class="btn" type="button" ng-click="getExpense(expenseBy,dateFrom,dateTo)">Search</button>
+                </div> 
+                </div>
+   
 
                 <div class="block">
                     <div class="head orange">
                         <div class="icon"><span class="ico-layout-9"></span></div>
-                        <h2>Table sorting</h2>
+                        <h2>{{employeeDict[expenseBy]}} From {{dateFrom | date:"dd/MM/yyyy" }} To {{dateTo | date:"dd/MM/yyyy" }}</h2>
                         <ul class="buttons">
                         </ul>                                 
                     </div>   

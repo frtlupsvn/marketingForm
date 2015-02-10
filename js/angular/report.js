@@ -2,12 +2,19 @@
 app.controller('Report',function($scope, $http) {
 
     //Get Objects Params
+
+    var fromDate = 0;
+    var toDate = Date();
         //Get data from Parse.com
-        $scope.getExpense = function(expenseBy) {
+        $scope.getExpense = function(expenseBy,dateFrom,dateTo) {
             $scope.loading ='show';
+
+            fromDate = Date.parse(dateFrom);
+            toDate = Date.parse(dateTo);
+
             $scope.totalExpense = 0;
             //------------------------------------------------------------
-            $http({method : 'GET',url : parseUrlExpense , headers: apiKeyGet , params: {'order':'-date', 'where':'{"expenseBy" : "'+ expenseBy +'"}' }})
+            $http({method : 'GET',url : parseUrlExpense , headers: apiKeyGet , params: {'order':'-date', 'where':'{"expenseBy" : "'+ expenseBy +'" , "date":{"$gte":'+fromDate+',"$lte":'+toDate+' }}' }})
             .success(function(data, status) {
 
                 $scope.employeeDict = employeeDict;
@@ -20,8 +27,8 @@ app.controller('Report',function($scope, $http) {
                 arrayEntry = $scope.jsonData ;
 
                 arrayEntry.forEach(function(entry) {
-                      $scope.totalExpense += entry.total ;
-                });
+                  $scope.totalExpense += entry.total ;
+              });
 
                 $scope.loading ='hide';
             })
@@ -32,6 +39,6 @@ app.controller('Report',function($scope, $http) {
         };
 
         // Call Function get data
-        $scope.getExpense("");
+        $scope.getExpense("",fromDate,toDate);
     });
 
