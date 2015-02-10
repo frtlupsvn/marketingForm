@@ -58,34 +58,35 @@
                 <ul ng-controller="NavCtrl" class="navigation">          
                     <li><a ng-href="#home" ng-click="menu='home'" class="blblue">Employee List</a></li>
                     <li><a ng-href="#expense" ng-click="menu='expense'" class="blyellow">Expense List</a></li>
+                    <li><a ng-href="#report" ng-click="menu='report'" class="blgreen">Reports</a></li>
                 </ul>
 
             </div>
             <div class="body">
                 <ul class="navigation">
-                        <li>
-                            <a href="#home" class="button">
-                                <div class="icon">
-                                    <span class="ico-monitor"></span>
-                                </div>                    
-                                <div class="name">Employee List</div>
-                            </a>                
-                        </li>
-                        <li>
-                            <a href="#expense" class="button yellow">
-                                <div class="arrow"></div>
-                                <div class="icon">
-                                    <span class="ico-cog-2"></span>
-                                </div>                    
-                                <div class="name">Expense List</div>
-                            </a>          
-                        </li>                             
-                    </ul>
+                    <li>
+                        <a href="#home" class="button">
+                            <div class="icon">
+                                <span class="ico-monitor"></span>
+                            </div>                    
+                            <div class="name">Employee List</div>
+                        </a>                
+                    </li>
+                    <li>
+                        <a href="#expense" class="button yellow">
+                            <div class="arrow"></div>
+                            <div class="icon">
+                                <span class="ico-cog-2"></span>
+                            </div>                    
+                            <div class="name">Expense List</div>
+                        </a>          
+                    </li>                             
+                </ul>
 
                 <section class="view" ng-view>
 
                 </section>
-          </div>
+            </div>
         </div>
         <div class="dialog" id="source" style="display: none;" title="Source"></div>
         <script src="js/angular/app.js"></script> 

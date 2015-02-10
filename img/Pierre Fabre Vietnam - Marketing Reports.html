@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:8888/#/expense -->
+<html ng-app="marketingApp" lang="en" class="ng-scope"><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>        
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">    
+    <!--[if gt IE 8]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />        
+        <![endif]-->                
+        <title>Pierre Fabre Vietnam - Marketing Reports</title>
+        <link rel="icon" type="image/ico" href="http://localhost:8888/favicon.ico">
+
+        <link href="./Pierre Fabre Vietnam - Marketing Reports_files/stylesheets.css" rel="stylesheet" type="text/css">
+    <!--[if lte IE 7]>
+        <link href="css/ie.css" rel="stylesheet" type="text/css" />
+        <script type='text/javascript' src='js/plugins/other/lte-ie7.js'></script>
+        <![endif]-->      
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/jquery-ui-1.10.1.custom.min.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/jquery-migrate-1.1.1.min.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/globalize.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/excanvas.js"></script>
+
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/jquery.mousewheel.min.js"></script>
+        
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/bootstrap.min.js"></script>            
+
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/jquery.cookies.2.2.0.min.js"></script>    
+
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/jquery.uniform.min.js"></script>
+
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/XRegExp.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/shCore.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/shBrushXml.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/shBrushJScript.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/shBrushCss.js"></script>    
+
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/plugins.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/charts.js"></script>
+        <script type="text/javascript" src="./Pierre Fabre Vietnam - Marketing Reports_files/actions.js"></script>
+
+        <script src="./Pierre Fabre Vietnam - Marketing Reports_files/parse.js"></script>
+        <script src="./Pierre Fabre Vietnam - Marketing Reports_files/angular.js"></script>
+        <script src="./Pierre Fabre Vietnam - Marketing Reports_files/angular-route.js"></script>
+
+    </head>
+    <body>    
+        <div id="loader" style="display: none;"><img src="./Pierre Fabre Vietnam - Marketing Reports_files/loader.gif"></div>
+        <div class="wrapper">
+
+            <div class="sidebar">
+
+                <div class="top">
+                    <a ng-href="#home" class="logo" href="http://localhost:8888/#home"></a>
+                </div>
+
+                <ul ng-controller="NavCtrl" class="navigation bordered ng-scope">          
+                    <li><a ng-href="#home" ng-click="menu=&#39;home&#39;" class="blblue" href="http://localhost:8888/#home">Employee List</a></li>
+                    <li><a ng-href="#expense" ng-click="menu=&#39;expense&#39;" class="blyellow" href="http://localhost:8888/#expense">Expense List</a></li>
+                    <li><a ng-href="#report" ng-click="menu=&#39;report&#39;" class="blgreen" href="http://localhost:8888/#report">Reports</a></li>
+                </ul>
+
+            </div>
+            <div class="body">
+                <ul class="navigation">
+                        <li>
+                            <a href="http://localhost:8888/#home" class="button">
+                                <div class="icon">
+                                    <span class="ico-monitor"></span>
+                                </div>                    
+                                <div class="name">Employee List</div>
+                            </a>                
+                        </li>
+                        <li>
+                            <a href="http://localhost:8888/#expense" class="button yellow">
+                                <div class="arrow"></div>
+                                <div class="icon">
+                                    <span class="ico-cog-2"></span>
+                                </div>                    
+                                <div class="name">Expense List</div>
+                            </a>          
+                        </li>                             
+                    </ul>
+
+                <!-- ngView --><section class="view ng-scope" ng-view="">
+<div ng-controller="Expense" class="ng-scope">
+                <div class="content">
+
+                    <div class="page-header">
+                        <div class="icon">
+                            <span class="ico-layout-7"></span>
+                        </div>
+                        <h1>Expense List <small>METRO STYLE ADMIN PANEL</small></h1>
+                        <div class="icon"><span class="ico-undo"></span></div>
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="span12">
+
+                            <div class="block">
+                                <div class="head orange">
+                                    <div class="icon"><span class="ico-layout-9"></span></div>
+                                    <h2>Table sorting</h2>
+                                    <ul class="buttons">
+                                        <li><a href="http://localhost:8888/#addExpense"><div class="icon"><span class="ico-add"></span></div></a></li>
+                                    </ul>                                 
+                                </div>                
+                                <div class="data-fluid">
+                                    <table class="table fTable lcnp" cellpadding="0" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th width="10%">Expense By</th>
+                                                <th width="10%">Aprroved By</th>
+                                                <th width="20%">Categories</th>
+                                                <th width="10%" class="TAC">Status</th>
+                                                <th width="10%" class="TAC">Date</th>
+                                                <th width="20%" class="TAC">Total</th>
+                                                <th width="20%" class="TAC">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- ngRepeat: t in jsonData --><tr ng-repeat="t in jsonData" class="ng-scope">
+                                                <td class="ng-binding">Cam Giang</td>
+                                                <td class="ng-binding">Cam Giang</td>
+                                                <td><span class="label label-info ng-binding">Trade campaign</span></td>
+                                                <td class="ng-binding">Advance</td>
+                                                <td class="ng-binding">22/02/2015</td>
+                                                <td class="ng-binding">217 VND</td>
+                                                <td class="ng-binding">sdasd</td>
+                                            </tr><!-- end ngRepeat: t in jsonData --><tr ng-repeat="t in jsonData" class="ng-scope">
+                                                <td class="ng-binding">Bui Ngoc Hoang Tram</td>
+                                                <td class="ng-binding">Ngoc Minh</td>
+                                                <td><span class="label label-info ng-binding">Market research service by DKSH</span></td>
+                                                <td class="ng-binding">Payment</td>
+                                                <td class="ng-binding">17/02/2015</td>
+                                                <td class="ng-binding">2000000 VND</td>
+                                                <td class="ng-binding">Tieu xai</td>
+                                            </tr><!-- end ngRepeat: t in jsonData --><tr ng-repeat="t in jsonData" class="ng-scope">
+                                                <td class="ng-binding">Phuong Ngoc</td>
+                                                <td class="ng-binding">Ngoc Thuy</td>
+                                                <td><span class="label label-info ng-binding">IMS, PGI data (local)</span></td>
+                                                <td class="ng-binding">Advance</td>
+                                                <td class="ng-binding">11/02/2015</td>
+                                                <td class="ng-binding">213 VND</td>
+                                                <td class="ng-binding">asd</td>
+                                            </tr><!-- end ngRepeat: t in jsonData --><tr ng-repeat="t in jsonData" class="ng-scope">
+                                                <td class="ng-binding">Ngoc Thuy</td>
+                                                <td class="ng-binding">Thu Hoa</td>
+                                                <td><span class="label label-info ng-binding">Mystery shoppet</span></td>
+                                                <td class="ng-binding">Payment</td>
+                                                <td class="ng-binding">06/02/2015</td>
+                                                <td class="ng-binding">2000000 VND</td>
+                                                <td class="ng-binding">in tài liệu</td>
+                                            </tr><!-- end ngRepeat: t in jsonData -->                              
+                                        </tbody>
+                                    </table>                    
+                                </div> 
+                            </div>              
+
+                        </div>
+                    </div>  
+
+            </div>
+            </div></section>
+          </div>
+        </div>
+        <div class="dialog" id="source" style="display: none;" title="Source"></div>
+        <script src="./Pierre Fabre Vietnam - Marketing Reports_files/app.js"></script> 
+        <script src="./Pierre Fabre Vietnam - Marketing Reports_files/employee.js"></script>  
+        <script src="./Pierre Fabre Vietnam - Marketing Reports_files/expense.js"></script>
+        <script src="./Pierre Fabre Vietnam - Marketing Reports_files/addEmployee.js"></script> 
+        <script src="./Pierre Fabre Vietnam - Marketing Reports_files/addExpense.js"></script>     
+    
+    
+</body></html>
