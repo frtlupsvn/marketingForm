@@ -44,7 +44,21 @@ var parseUrlCategories =    "https://api.parse.com/1/classes/Categories";
 
         Parse.initialize("7MEb3qAzRJHYOkBGeRFlgyRVhr32jvsP4v7nTCzQ", "VEi9jbdu6la8IEaBcBIU9kfmOcDUSMVNeQxmTxIn");
 
+        var EmployeeByObject = Parse.Object.extend("Employee");
+        var TempEmployeeObj = new EmployeeByObject();
 
+        var query = new Parse.Query(EmployeeByObject);
+        query.get(formExpense.expenseBy, {
+          success: function(data) {
+            TempEmployeeObj = data ;
+          },
+          error: function(object, error) {
+            // The object was not retrieved successfully.
+            // error is a Parse.Error with an error code and message.
+          }
+        }); 
+
+        var AcceptByObject = Parse.Object.extend("Employee");
 
 
         var ExpenseObject = Parse.Object.extend("Expense");
@@ -53,10 +67,11 @@ var parseUrlCategories =    "https://api.parse.com/1/classes/Categories";
         TempExpenseObject.save({total:formExpense.total , description: formExpense.description, status: formExpense.status, date:formExpense.date}, {
           success: function(object) {
             alert("success");
-            console.log($scope.jsonEmployee[1]);
-            TempExpenseObject.set("expenseBy",$scope.jsonEmployee[1]);
+
+            TempExpenseObject.set("expenseBy",TempEmployeeObj);
             TempExpenseObject.save();
  
+            //TempExpenseObject.save({expenseBy:ExpenseByObject ,acceptBy:AcceptByObject}); 
         },
         error: function(model, error) {
             alert("Error");
