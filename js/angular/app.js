@@ -1,4 +1,4 @@
-var app = angular.module("marketingApp" , ['ngRoute']);
+var app = angular.module("marketingApp" , ["ngRoute","googlechart"]);
 
 app.config(function($routeProvider) {
             // body...
@@ -10,6 +10,14 @@ app.config(function($routeProvider) {
             .when('/report', {templateUrl:'partials/report.html'})
             .otherwise({redirectTo: '/home'})
         });
+app.value('googleChartApiConfig', {
+    version: '1',
+    optionalSettings: {
+        packages: ['corechart', 'gauge'],
+        language: 'fr'
+    }
+});
+
 // Parse config
 var apiKeyGet =     { 'X-Parse-Application-Id':'7MEb3qAzRJHYOkBGeRFlgyRVhr32jvsP4v7nTCzQ', 'X-Parse-REST-API-Key':'18I0T6NZjaBUifZv3leQ8HFHPnlfmBKBPVVaoaUr'};
 var parseUrlExpense= "https://api.parse.com/1/classes/Expense";
