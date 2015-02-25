@@ -49,13 +49,14 @@ $scope.statusArray = ["Advance","Payment"];
         var expenseobject = new ExpenseObject();
 
         expenseobject.save({
-            total:formExpense.total ,
+            total: formExpense.total,
+            title: formExpense.title,
             description: formExpense.description, 
             status: formExpense.status, 
-            date:formExpense.date, 
-            expenseBy:formExpense.expenseBy, 
-            acceptBy:formExpense.acceptBy,
-            category:formExpense.category
+            date: formExpense.date, 
+            expenseBy: formExpense.expenseBy, 
+            acceptBy: formExpense.acceptBy,
+            category: formExpense.category
         }, 
         {
           success: function(object) {
