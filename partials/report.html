@@ -13,83 +13,81 @@
 
         <div class="row-fluid">
             <div class="span12">
-                <div class="span12">
-                    <div class="span1">Employee:</div>
-                    <div class="span2">
-                        <select ng-model="expenseBy" name="s_example">
-                            <option ng-repeat="t in jsonEmployee" value="{{t.objectId}}">{{t.name}}</option>
-                        </select>
-                    </div>
-                    <div class="span1">From: </div>
-                    <div class="span2">                                                            
-                        <input ng-model="dateFrom" type="date" class="datepicker"/>
-                    </div>
-                    <div class="span1">To: </div>
-                    <div class="span2">                                                            
-                        <input ng-model="dateTo" type="date" class="datepicker"/>
-                    </div>
-                    <div class="span2">
-                        <button class="btn" type="button" ng-click="getExpense(expenseBy,dateFrom,dateTo)">Search</button>
-                    </div> 
+                <div class="span1">Employee:</div>
+                <div class="span2">
+                    <select ng-model="expenseBy" name="s_example">
+                        <option ng-repeat="t in jsonEmployee" value="{{t.objectId}}">{{t.name}}</option>
+                    </select>
                 </div>
-                <div class="span12">
-                    <div google-chart chart="chartObject" style="height:300px; width:100%;"></div>
+                <div class="span1">From: </div>
+                <div class="span2">                                                            
+                    <input ng-model="dateFrom" type="date" class="datepicker"/>
                 </div>
-                <div class="span12">
-                    <div class="block">
-                        <div class="head orange">
-                            <div class="icon"><span class="ico-layout-9"></span></div>
-                            <h2>{{employeeDict[expenseBy]}} From {{dateFrom | date:"dd/MM/yyyy" }} To {{dateTo | date:"dd/MM/yyyy" }}</h2>
-                            <ul class="buttons">
-                            </ul>                                 
-                        </div>   
+                <div class="span1">To: </div>
+                <div class="span2">                                                            
+                    <input ng-model="dateTo" type="date" class="datepicker"/>
+                </div>
+                <div class="span2">
+                    <button class="btn" type="button" ng-click="getExpense(expenseBy,dateFrom,dateTo)">Search</button>
+                </div> 
+            </div>
+            <div class="span12">
+                <div google-chart chart="chartObject" ng-style="myStyle"></div>
+            </div>
+            <div class="span10" style="margin-left:0;">
+                <div class="block">
+                    <div class="head orange">
+                        <div class="icon"><span class="ico-layout-9"></span></div>
+                        <h2>{{employeeDict[expenseBy]}} From {{dateFrom | date:"dd/MM/yyyy" }} To {{dateTo | date:"dd/MM/yyyy" }}</h2>
+                        <ul class="buttons">
+                        </ul>                                 
+                    </div>   
 
-                        <div class="loading" ng-class="{desactive: loading=='hide'}">
-                            <div id="loadingProgressG">
-                                <div id="loadingProgressG_1" class="loadingProgressG">
-                                </div>
+                    <div class="loading" ng-class="{desactive: loading=='hide'}">
+                        <div id="loadingProgressG">
+                            <div id="loadingProgressG_1" class="loadingProgressG">
                             </div>
-                        </div>   
+                        </div>
+                    </div>   
 
-                        <div class="data-fluid">
+                    <div class="data-fluid">
                         <table class="table fTable lcnp" cellpadding="0" cellspacing="0" width="50%">
-                                <thead>
-                                    <tr>
-                                        <th width="10%" class="TAC">Date</th>
-                                        <th width="10%" class="TAC">Title</th>
-                                        <th width="20%">Categories</th>
-                                        <th width="20%" class="TAC">Description</th>
-                                        <th width="10%" class="TAC">Status</th>
-                                        <th width="20%" class="TAC">Price</th>
+                            <thead>
+                                <tr>
+                                    <th width="10%" class="TAC">Date</th>
+                                    <th width="10%" class="TAC">Title</th>
+                                    <th width="20%">Categories</th>
+                                    <th width="20%" class="TAC">Price</th>                                       
+                                    <th width="10%" class="TAC">Status</th>
+                                    <th width="30%" class="TAC">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="t in jsonData">
+                                    <td>{{t.date | date:"dd/MM/yyyy"}}</td>
+                                    <td>{{t.title}}</td>
+                                    <td><span class="label label-info">{{categoriesDict[t.category]}}</span></td>
+                                    <td>{{t.total | number}}</td>
+                                    <td>{{t.status}}</td>
+                                    <td>{{t.description}}</td>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="t in jsonData">
-                                        <td>{{t.date | date:"dd/MM/yyyy"}}</td>
-                                        <td>{{t.title}}</td>
-                                        <td><span class="label label-info">{{categoriesDict[t.category]}}</span></td>
-                                        <td>{{t.description}}</td>
-                                        <td>{{t.status}}</td>
-                                        <td>{{t.total | number}} VND</td>
 
-                                    </tr>                              
-                                </tbody>
-                            </table>                    
-                            <div class="row-fluid">
-                                <div class="span9"></div>
-                                <div class="span3">
-                                    <div class="total">
-                                        <div class="highlight">
-                                            <strong><span class="label label-info ng-binding">Total: {{totalExpense | number}} <em>VND</em> </span></strong>
-                                        </div>
+                                </tr>                              
+                            </tbody>
+                        </table>                    
+                        <div class="row-fluid">
+                            <div class="span9"></div>
+                            <div class="span3">
+                                <div class="total">
+                                    <div class="highlight">
+                                        <strong><span class="label label-info ng-binding">Total: {{totalExpense | number}} <em>VND</em> </span></strong>
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
+                    </div> 
 
-                    </div>              
-                </div>
+                </div>              
             </div>
         </div>  
 

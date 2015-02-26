@@ -3,7 +3,9 @@ app.controller('Report',function($scope, $http) {
 
     //Get Objects Params
     $scope.chartObject = {};
-
+    $scope.myStyle = {"height":"0px",
+                "width":"100%"
+                };
     var fromDate = 0;
     var toDate = Date();
         //Get data from Parse.com
@@ -34,8 +36,11 @@ app.controller('Report',function($scope, $http) {
                   $scope.totalExpense += entry.total ;
 
               });
+                if (arrayEntry.length != 0){
+                    DrawChart(arrayEntry);
+                }
 
-                DrawChart(arrayEntry);
+
                 $scope.loading ='hide';
             })
             .error(function(data, status) {
@@ -45,6 +50,9 @@ app.controller('Report',function($scope, $http) {
 
 DrawChart = function(data){
                         // Draw Chart
+                            $scope.myStyle = {"height":"500px",
+                                         "width":"100%"
+                            };
                         console.log(data);
 
                         var arrayCategorie = [];
@@ -65,7 +73,8 @@ DrawChart = function(data){
     // $routeParams.chartType == BarChart or PieChart or ColumnChart...
     $scope.chartObject.type = "PieChart";
     $scope.chartObject.options = {
-        'title': 'PieChart By Categories'
+        'title': 'PieChart By Categories',
+        'is3D' : true
     }
 };
 
